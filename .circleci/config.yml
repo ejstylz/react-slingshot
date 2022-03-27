@@ -19,15 +19,14 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: npm i
       - restore_cache:
           key: "npm-packages"
+      - run: npm i
       - run: npm run test
   analyze:
     <<: *defaults
     steps:
       - checkout
-      - run: npm i
       - restore_cache:
           key: "npm-packages"
       - run: npm audit
